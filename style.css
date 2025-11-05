@@ -33,7 +33,7 @@ canvas#bg{
     color: white;
 }
 
-/* Robot */
+/* Robot animation */
 .robot-img{
     width: 200px;
     animation: float 2s ease-in-out infinite;
