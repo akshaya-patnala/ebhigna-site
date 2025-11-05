@@ -1,4 +1,4 @@
-// Blue bubbles background
+// ------ BLUE BUBBLES BACKGROUND ------
 const canvas = document.getElementById("bg");
 const ctx = canvas.getContext("2d");
 
@@ -40,7 +40,7 @@ window.addEventListener("resize", init);
 init();
 animate();
 
-// Anywhere click → open EBHIGNA main page
+// ------ CLICK ANYWHERE TO OPEN EBHIGNA PAGE ------
 document.body.addEventListener("click", () => {
-    window.location.href = "ebhigna.html"; // Your main EBHIGNA page
+    window.location.href = "ebhigna.html"; // Replace with your EBHIGNA main page
 });
