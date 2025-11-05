@@ -3,29 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Strides Landing Page</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Strides Landing</title>
+  <style>
+    /* Reset default margin and make full height */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden; /* prevents scroll */
+    }
+
+    /* Fullscreen image style */
+    .fullscreen-image {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;  /* covers screen without distortion */
+      display: block;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Background Canvas -->
-  <canvas id="bg"></canvas>
+  <!-- Landing poster -->
+  <img 
+    src="strides-poster.jpg"  <!-- replace with your image path -->
+    alt="Strides Poster"
+    class="fullscreen-image"
+    id="landingImage"
+  />
 
-  <!-- Center Content -->
-  <div class="landing-container">
-      <!-- Robot Welcome -->
-      <div class="robot">
-          <img src="robot.png" alt="Robot Welcome" class="robot-img">
-      </div>
+  <script>
+    // Navigate to next page when image is clicked
+    document.getElementById('landingImage').addEventListener('click', () => {
+      window.location.href = 'nextpage.html'; // replace with your next page
+    });
+  </script>
 
-      <!-- Strides Poster -->
-      <div class="poster">
-          <img src="strides_poster.jpg" alt="Strides Poster">
-      </div>
-
-      <p class="tap-text">Tap anywhere to enter EBHIGNA 2K26</p>
-  </div>
-
-<script src="script.js"></script>
 </body>
 </html>
