@@ -1,53 +1,4 @@
-// ------ POPUP SYSTEM ------
-const popup = document.getElementById("popup");
-const closeBtn = document.querySelector(".close-btn");
-const eventTitle = document.getElementById("event-title");
-const eventDesc = document.getElementById("event-desc");
-
-// Event data (descriptions can be added later)
-const eventInfo = {
-    jiggle: {
-        title: "Code Jiggle",
-        desc: "Description will be updated soon..."
-    },
-    golf: {
-        title: "Code Golf",
-        desc: "Description will be updated soon..."
-    },
-    prompt: {
-        title: "Promptopia",
-        desc: "Description will be updated soon..."
-    },
-    escape: {
-        title: "Escape the Lab",
-        desc: "Description will be updated soon..."
-    }
-};
-
-// Add click events to all event buttons
-document.querySelectorAll(".event-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-        let key = btn.getAttribute("data-event");
-        eventTitle.textContent = eventInfo[key].title;
-        eventDesc.textContent = eventInfo[key].desc;
-        popup.style.display = "flex";
-    });
-});
-
-// Close popup
-closeBtn.addEventListener("click", () => {
-    popup.style.display = "none";
-});
-
-// Close popup when clicking outside box
-popup.addEventListener("click", (e) => {
-    if(e.target === popup){
-        popup.style.display = "none";
-    }
-});
-
-
-// ------ ANIMATED BACKGROUND ------
+// ------ ANIMATED BACKGROUND (Gold Sparkles) ------
 const canvas = document.getElementById("bg");
 const ctx = canvas.getContext("2d");
 
@@ -57,29 +8,41 @@ function init(){
     h = canvas.height = window.innerHeight;
     particles = [];
 
-    for(let i=0; i<100; i++){
+    for(let i = 0; i < 120; i++){  // Number of sparkles
         particles.push({
-            x: Math.random()*w,
-            y: Math.random()*h,
-            vx: (Math.random()-0.5)*1,
-            vy: (Math.random()-0.5)*1,
-            r: Math.random()*2 + 1
+            x: Math.random() * w,
+            y: Math.random() * h,
+            vx: (Math.random() - 0.5) * 0.8, // horizontal speed
+            vy: (Math.random() - 0.5) * 0.8, // vertical speed
+            r: Math.random() * 2 + 1,       // radius
+            alpha: Math.random() * 0.7 + 0.3 // opacity
         });
     }
 }
 
 function animate(){
-    ctx.clearRect(0,0,w,h);
+    ctx.clearRect(0, 0, w, h);
+
     for(let p of particles){
+        // Move particle
         p.x += p.vx;
         p.y += p.vy;
+
+        // Bounce off edges
         if(p.x < 0 || p.x > w) p.vx *= -1;
         if(p.y < 0 || p.y > h) p.vy *= -1;
+
+        // Draw sparkle
+        let gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r*4);
+        gradient.addColorStop(0, `rgba(255, 215, 0, ${p.alpha})`); // bright gold
+        gradient.addColorStop(1, 'rgba(255, 215, 0, 0)');          // transparent edge
+
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, 2*Math.PI);
-        ctx.fillStyle = "cyan";
+        ctx.arc(p.x, p.y, p.r, 0, 2 * Math.PI);
+        ctx.fillStyle = gradient;
         ctx.fill();
     }
+
     requestAnimationFrame(animate);
 }
 
