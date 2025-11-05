@@ -1,57 +1,9 @@
-// ------ POPUP SYSTEM ------
-const popup = document.getElementById("popup");
-const closeBtn = document.querySelector(".close-btn");
-const eventTitle = document.getElementById("event-title");
-const eventDesc = document.getElementById("event-desc");
-
-// Event data (descriptions can be added later)
-const eventInfo = {
-    jiggle: {
-        title: "Code Jiggle",
-        desc: "Description will be updated soon..."
-    },
-    golf: {
-        title: "Code Golf",
-        desc: "Description will be updated soon..."
-    },
-    prompt: {
-        title: "Promptopia",
-        desc: "Description will be updated soon..."
-    },
-    escape: {
-        title: "Escape the Lab",
-        desc: "Description will be updated soon..."
-    }
-};
-
-// Add click events to all event buttons
-document.querySelectorAll(".event-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-        let key = btn.getAttribute("data-event");
-        eventTitle.textContent = eventInfo[key].title;
-        eventDesc.textContent = eventInfo[key].desc;
-        popup.style.display = "flex";
-    });
-});
-
-// Close popup
-closeBtn.addEventListener("click", () => {
-    popup.style.display = "none";
-});
-
-// Close popup when clicking outside box
-popup.addEventListener("click", (e) => {
-    if(e.target === popup){
-        popup.style.display = "none";
-    }
-});
-
-
-// ------ ANIMATED BACKGROUND ------
+// Blue bubbles background
 const canvas = document.getElementById("bg");
 const ctx = canvas.getContext("2d");
 
 let w, h, particles;
+
 function init(){
     w = canvas.width = window.innerWidth;
     h = canvas.height = window.innerHeight;
@@ -87,3 +39,8 @@ window.addEventListener("resize", init);
 
 init();
 animate();
+
+// Anywhere click → open EBHIGNA main page
+document.body.addEventListener("click", () => {
+    window.location.href = "ebhigna.html"; // Your main EBHIGNA page
+});
