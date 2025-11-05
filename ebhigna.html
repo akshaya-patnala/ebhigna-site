@@ -4,8 +4,69 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EBHIGNA 2K26</title>
+  <link rel="stylesheet" href="ebhigna.css">
 </head>
 <body>
-  <h1>Welcome to EBHIGNA 2K26!</h1>
+
+  <!-- Background Canvas -->
+  <canvas id="bg"></canvas>
+
+  <div class="container">
+
+    <!-- Page Header -->
+    <header class="page-header">
+      <h1>EBHIGNA</h1>
+      <h2>2K26</h2>
+      <h3>Pragati Engineering College</h3>
+      <h4>Department of CSE AI</h4>
+    </header>
+
+    <!-- Events Section -->
+    <section class="events">
+      <h2>Events</h2>
+      <ul>
+        <li class="event" data-description="Code Jiggle is a coding event where participants solve puzzles and challenges in a fun, competitive environment.">Code Jiggle</li>
+        <li class="event" data-description="Code Golf challenges participants to solve problems using the shortest possible code.">Code Golf</li>
+        <li class="event" data-description="Promptopia is all about AI prompts, creativity, and prompt engineering challenges.">Promptopia</li>
+        <li class="event" data-description="Escape the Lab is a problem-solving and logic event with a mystery/lab theme.">Escape the Lab</li>
+      </ul>
+    </section>
+
+    <!-- Coordinators Section -->
+    <section class="coordinators">
+      <h2>Coordinators</h2>
+      <div class="section-group">
+        <h3>Head of the Department</h3>
+        <p>K. Lakshmi Viveka - 9642788777</p>
+      </div>
+      <div class="section-group">
+        <h3>Faculty Coordinators</h3>
+        <p>D Ramesh - 9441159148</p>
+        <p>M Veerababu - 9491629344</p>
+      </div>
+      <div class="section-group">
+        <h3>Student Coordinators</h3>
+        <p>Umaanjani - 9182173933</p>
+        <p>Rajesh - 8919485402</p>
+      </div>
+      <div class="section-group">
+        <h3>Website Designers</h3>
+        <p>P N D Akshaya - 23A31A43F8</p>
+        <p>B Srija - 23A31A43D4</p>
+        <p>K Bala Murali Krishna - 23A31A43A5</p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Modal for Event Description -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p id="modal-text"></p>
+    </div>
+  </div>
+
+  <script src="ebhigna.js"></script>
 </body>
 </html>
